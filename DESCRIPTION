@@ -1,0 +1,26 @@
+Package: GA
+Type: Package
+Title: Uses a genetic algorithm to select optimal features for a linear regression
+Version: 0.1.0
+Author: Andrew Ma, James Hall, and Sky Qui 
+Maintainer: <andrew.c.ma@berkeley.edu>
+Description: This package provides a genetic 
+    algorithm to identify optimal features 
+    for linear regression under R's LM and
+    GLM models. Users are able to set 
+    multiple parameters for the genetic 
+    algorithm and request optimization via 
+    R2, AIC, BIC, AICc or a user defined
+    function. The algorithm can process 
+    these score functions in parallel
+    on a single machine with the 
+    parallel = TRUE argument. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    assertthat,
+    stats,
+    testthat
+RoxygenNote: 7.1.2
+Config/testthat/edition: 3

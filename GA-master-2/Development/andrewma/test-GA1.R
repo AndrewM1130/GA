@@ -1,0 +1,54 @@
+library(testthat)
+library(assertthat)
+source('create_initial_generation.R')
+source('more_controllable_data_gen.R')
+source('score_fitness_V2.R')
+source('elitism.R')
+source('test_custom_function.R')
+
+set.seed(1)
+data <- generate_data()
+generation_matrix <- create_initial_generation(50,50)
+gene <- generation_matrix
+score_vec <- score_fitness2(gene,data,'AIC')
+
+test <- function(gene,data){
+  return(sum(gene))
+}
+
+fail <- function(gene,data){
+  return(list(gene[1,]))
+}
+
+#testing custom user functions
+test_that("custom user functions",{
+  expect_true(test_user_function(test,gene,data)$message)
+  expect_equal(test_user_function(test,gene,data)$error, NA)
+  expect_that(test_user_function(fail,gene,data), throws_error())
+})
+
+
+
+#test the different matrices
+test_that("scoring the genes",{
+  expect_is(score_fitness2(gene, data, 'AIC'), 'list')
+  expect_is(score_fitness2(gene, data, 'R2'), 'list')
+  expect_is(score_fitness2(gene, data, custom_function = test), 'list')
+})
+
+elite_prop = .001
+elite_num <- elite_prop * nrow(data)
+elite <- apply_elitism(data, gene, score_vec[[1]], 
+                      elite_prop = .01, mutate = 0, metric = 'AIC',
+                      family = 'gaussian', custom_function = NULL,
+                      fittest = 'high')
+  
+best <- gene[which.min(score_vec[[2]]), ]
+
+#tests for functionality of elitism
+
+test_that("test elitism",{
+  expect_equal(as.numeric(elite), best)
+  expect_equal(length(as.numeric(elite)),length(best))
+  expect_equal(nrow(elite),elite_num)
+})
