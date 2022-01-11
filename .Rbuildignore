@@ -2,3 +2,10 @@
 ^\.Rproj\.user$
 ^Analysis$
 ^Development$
+^Install$
+^README.Rmd$
+^LICENSE\.md$
+^cran-comments\.md$
+^data-raw$
+^pkgdown$
+^\.github$

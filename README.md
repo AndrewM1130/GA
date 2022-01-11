@@ -1,14 +1,10 @@
-# GA
-On the utilization of Genetic Algorithms for Feature Selection in Multivariate Regression Models
 
-Last Updated: 17 DEC 2021
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-Andrew Ma - James Hall - Sky Qiu
+# GA <a href='https://dplyr.tidyverse.org'><img src='Analysis/figures/logo.png' align="right" height="139" /></a>
 
 [![R build
 status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
-
-<img src="http://hexb.in/vector/dotnetbot.svg" style="width:10.0%" />
 
 ## Overview:
 
@@ -60,15 +56,19 @@ GA requires stats, tesstthat, and assertthat packages.
 5.  Select and/or tune additional features including:
 
 -   crossover method (‘uniform’,‘fitness’,‘k_point’)
+
 -   parent selection method (‘roulette’,‘rank’,‘tournament’,‘sus’)
+
 -   mutation method (‘fixed’,‘adaptive’)
+
 -   number of parents per offspring
+
 -   elitism
+
 -   minimize inbreeding
+
 -   Early termination conditions (‘pause_length’, ‘score_threshold’,
     ‘percent_converge’)
-
-## An Example / Your first Genetic Algorithm using Select
 
 -   Concept: Below, gene_length is set to 20 to match the number of
     independent variables. Pop is set to 25. We set AIC as the metric
@@ -116,11 +116,6 @@ select(total_number_generations = total_number_generations,
 -   select_parent - Selects parents for the next generation of creatures
 
 -   test_user_function - Tests User_Provided Custom Function
-
-## Help:
-
-You can read more in our functions’ documentation using ?function (such
-as ?select)
 
 ## GA::select() Parameters:
 
@@ -313,3 +308,8 @@ Can be nominated from the summary() function aka Min., 1st Qu., Median,
 Mean, 3rd Qu., or Max. so for instance estimator = Max. metric = ‘AIC’
 and score_threshold = 500 would terminate when the Max. AIC falls below
 500. diversity is defined as sum(unique(genes))/total genes.
+
+## Help:
+
+You can read more in our functions’ documentation using ?function (such
+as ?select)
