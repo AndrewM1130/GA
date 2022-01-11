@@ -47,7 +47,15 @@
 
 #termination condition
 
-see_if_terminate <- function(generation_matrix,summary_data_frame,estimator = NULL,pause_length = NULL,score_threshold = NULL,percent_converge = NULL,iteration, metric = 'AIC',fittest = 'high'){
+see_if_terminate <- function(generation_matrix,
+                             summary_data_frame,
+                             estimator = NULL,
+                             pause_length = NULL,
+                             score_threshold = NULL,
+                             percent_converge = NULL,
+                             iteration,
+                             metric = 'AIC',
+                             fittest = 'high'){
 
   ### ----- Assertions ----- ###
 
@@ -155,7 +163,6 @@ see_if_terminate <- function(generation_matrix,summary_data_frame,estimator = NU
 
     }
 
-
   }
 
   ### ----- Percent_converge ----- ###
@@ -179,3 +186,4 @@ see_if_terminate <- function(generation_matrix,summary_data_frame,estimator = NU
   return(out)
 
 }
+

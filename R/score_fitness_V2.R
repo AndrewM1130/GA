@@ -28,7 +28,12 @@
 #' score_vec <- score_fitness2(data = data,gene = gene,metric = metric)
 #'
 
-score_fitness2<-function(gene,data,metric = 'AIC',family='gaussian',custom_function = NULL, fittest = 'high') {
+score_fitness2 <- function(gene,
+                           data,
+                           metric = 'AIC',
+                           family='gaussian',
+                           custom_function = NULL,
+                           fittest = 'high') {
 
 
   ### ------ Check to ensure Data is in row order not column order (matters when processing 1x creature----- ####
