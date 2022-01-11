@@ -10,7 +10,7 @@ Andrew Ma - James Hall - Sky Qiu
 [![R build
 status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
 
-<img src="http://hexb.in/vector/roxygen2.svg" style="width:6.0%" /><img src="http://hexb.in/vector/dotnetbot.svg" style="width:10.0%" />
+<img src="http://hexb.in/vector/dotnetbot.svg" style="width:10.0%" />
 
 ## Overview:
 
