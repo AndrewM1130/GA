@@ -80,29 +80,32 @@ devtools::install_github("AndrewM1130/GA")
     generation
 3.  Tune & add additional parameters, which include:
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <thead>
 <tr>
 <th class="tg-0lax">
-Crossover Method
+Parameter
 </th>
 <th class="tg-0lax">
-crossover
+Variable Name
 </th>
 <th class="tg-0lax">
-(‘uniform’,‘fitness’,‘k_point’)
+Available Options
 </th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tg-0lax">
+Crossover Method
+</td>
+<td class="tg-0lax">
+crossover
+</td>
+<td class="tg-0lax">
+(‘uniform’,‘fitness’,‘k_point’)
+</td>
+</tr>
 <tr>
 <td class="tg-0lax">
 Parent Selection Method
