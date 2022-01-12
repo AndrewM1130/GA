@@ -1,3 +1,6 @@
+### This script contains examples present in the help section of our
+### package documentation; can be found inside of 'GADocumentation.pdf'
+
 ### ----- Help Example 1 ----- ###
 set.seed(200)
 pop <- 50

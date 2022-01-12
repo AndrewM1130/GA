@@ -1,4 +1,6 @@
-### ----- Demo ----- ###
+### Contains examples utilzied in the 'Report.Rmd' file
+
+## ----- Demo ----- ###
 install.packages('GA_0.1.1.tgz')
 library(GA)
 
@@ -17,8 +19,8 @@ generate_data <- function() {
 data <- generate_data()
 response_vec <- as.vector(data[,1])
 independent_vars <- as.matrix(data[,2:ncol(data)])
-total_number_generations=50
-gene_length=50
+total_number_generations  = 50
+gene_length = 50
 prob = 0.05
 metric = 'AIC'
 family = 'gaussian'
@@ -36,7 +38,6 @@ percent_converge = .10
 ### ----- Tested Parameters ----- ###
 
 ### Test 1 Fast and Furious
-
 number_of_parents = 2
 pop=50
 mutation = 'fixed'
@@ -109,7 +110,6 @@ for (i in 1:5) {
 }
 
 ### Test 2 More Parents, less elite, less mutation
-
 number_of_parents = 4
 pop=50
 mutation = 'fixed'
@@ -181,7 +181,6 @@ for (i in 1:5) {
 }
 
   ### Test 3 --2 Parents, low elite, adaptive mutation and minimize inbreeding
-
   number_of_parents = 2
   pop=50
   mutation = 'adaptive'
@@ -255,7 +254,6 @@ for (i in 1:5) {
 
 
 ### ----- Evaluate ----- ###
-
 test_out_results<- function(list_o) {
   iter <- length(list_o)
   final <- iter
@@ -286,7 +284,7 @@ average_times <- function(list_t) {
 time <- c(average_times(time1),average_times(time2),average_times(time3))
 SSE <- c(test_out_results(out1),test_out_results(out2),test_out_results(out3))
 
-df <- data.frame(x=time,y=SSE,z=c('T-1','T-2','T-3'))
+df <- data.frame(x=time,y=SSE,z = c('T-1','T-2','T-3'))
 plot(df$x, df$y,xlab='time',ylab='SSE')
 text(df$x[2], df$y[2]+50, labels=df$z[2])
 text(df$x[1], df$y[1]-50, labels=df$z[1])
