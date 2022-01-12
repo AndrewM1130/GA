@@ -1,7 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^Analysis$
-^Development$
+^analysis$
+^release_process$
 ^Install$
 ^README.Rmd$
 ^LICENSE\.md$

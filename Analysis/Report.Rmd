@@ -1,8 +1,9 @@
 ---
-title: "On the Design and Implementation of Genetic Algorithms for Feature Selection"
-author: "James Hall - Andrew Ma - Sky Qian"
-date: "12/15/2021"
-output: html_document
+title: On the Design and Implementation of Genetic Algorithms for Multivariate Feature
+  Selection
+author: "Andrew Ma"
+output:
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -139,7 +140,7 @@ test_out_results<- function(list_o) {
 
 ```
 
-Here in figire 5 and 6 we print then plot our data. We see that maintaining diversity had better results (minimizing SSE). However we also see that elitism appears to be computationally wasteful. If we went back and added additional features we could make the mutation in elitism optional which should speed up the processes.  
+Here in figure 5 and 6 we print then plot our data. We see that maintaining diversity had better results (minimizing SSE). However we also see that elitism appears to be computationally wasteful. If we went back and added additional features we could make the mutation in elitism optional which should speed up the processes.  
 
 ![Figure 5. SSE and Time ](SSE_Time.png)
  

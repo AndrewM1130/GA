@@ -3,24 +3,35 @@
 
 # GA <a href='https://dplyr.tidyverse.org'><img src='Analysis/figures/logo.png' align="right" height="139" /></a>
 
+<!-- badges: start -->
+
 [![R build
 status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
+[![Codecov test
+coverage](https://codecov.io/gh/tidyverse/dplyr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidyverse/dplyr?branch=main)
+[![Coverage
+Status](https://coveralls.io/repos/github/topepo/caret/badge.svg?branch=master)](https://coveralls.io/github/topepo/caret?branch=master)
+<!-- badges: end -->
 
 ## Overview:
 
--   Description
--   Git Layout
--   Dependencies
--   How to Download
--   Steps for Using Select and Example
--   Functions and Supporting Functions
--   Parameters for Select
--   Additional Details
--   Acknowledgements
+GA is an exploration into the development of a customizable package for
+genetic algorithm with the goal of solving multivariate linear
+regression at speeds faster than step-wise methods. The grammar of data
+manipulation, providing a consistent set of verbs that help you solve
+the most common data manipulation challenges:
 
-## Description:
+-   `create_initial_generation()` picks variables based on their names.
+-   `select()` adds new variables that are functions of existing
+    variables
 
-User can enter a custom function or select a metric from (AIC, BIC,
+These all combine naturally with `group_by()` which allows you to
+perform any operation “by group”. You can learn more about them in
+`vignette("dplyr")`. As well as these single-table verbs, dplyr also
+provides a variety of two-table verbs, which you can learn about in
+`vignette("two-table")`. GA requires stats, tesstthat, and assertthat
+packages. A in-depth paper on the development process can be found at .
+Users can enter a custom function or select a metric from (AIC, BIC,
 AICC, R2) to optimize features to include in the linear regression. This
 function has a broad range of genetic algorithm features including
 multiple parent section methods, crossover options, mutation options and
@@ -28,24 +39,25 @@ other features such as elitism, minimizing-inbreeding, using more than
 two parents and selecting from a range of early termination options. See
 below for details)
 
-## Git Layout:
+## Installation
 
--   ‘GA’ folder contains R package
+``` r
+# The easiest way to get dplyr is to clone install the 'GA' package with the tar.gz file:
+install.packages('GA_0.1.1.tgz', repos = NULL, type ='source')
 
--   ‘Development’ folder contains past R code and our group’s past
-    commits, e.t.c.
+# Alternatively, install using the command line:
+R CMD INSTALL 'GA_0.1.1.tgz'
+```
 
--   .tar.gz and .tgz for package download
+### Development version
 
-## Dependencies:
+To get a bug fix or to use a feature from the development version, you
+can install the development version of dplyr from GitHub.
 
-GA requires stats, tesstthat, and assertthat packages.
-
-## How/where to download your program:
-
-1.  Download GA_0.1.0.tar.gz from the GA github
-2.  Unzip .gz file onto working directory
-3.  ‘R CMD INSTALL GA’
+``` r
+# install.packages("devtools")
+devtools::install_github("AndrewM1130/GA")
+```
 
 ## Steps for Using Select:
 
@@ -309,7 +321,10 @@ Mean, 3rd Qu., or Max. so for instance estimator = Max. metric = ‘AIC’
 and score_threshold = 500 would terminate when the Max. AIC falls below
 500. diversity is defined as sum(unique(genes))/total genes.
 
-## Help:
+## Getting Help
 
 You can read more in our functions’ documentation using ?function (such
-as ?select)
+as ?select). If you encounter a clear bug, please file an issue with a
+minimal reproducible example on
+[GitHub](https://github.com/AndrewM1130/GA). For questions and other
+discussion, please reach out to me via email or direct messaging!
