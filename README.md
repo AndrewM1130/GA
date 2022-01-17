@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## GA <a href='https://github.com/AndrewM1130/GA'><img src='Analysis/figures/logo.png' align="right" height="139" /></a>
+# GA <a href='https://github.com/AndrewM1130/GA'><img src='Analysis/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -13,7 +13,7 @@ coverage](https://codecov.io/gh/tidyverse/dplyr/branch/main/graph/badge.svg)](ht
 Status](https://coveralls.io/repos/github/topepo/caret/badge.svg?branch=master)](https://coveralls.io/github/topepo/caret?branch=master)
 <!-- badges: end -->
 
-### Overview
+## Overview
 
   GA is an exploration into the development of a customizable package
 for genetic algorithm with the goal of solving multivariate linear
@@ -59,7 +59,7 @@ multiple parent section methods, crossover options, mutation options and
 other features such as elitism, minimizing-inbreeding, using more than
 two parents and selecting from a range of early termination options.
 
-### Installation
+## Installation
 
 ``` r
 # The easiest way to get dplyr is to clone install the 'GA' package with the tar.gz file:
@@ -202,120 +202,122 @@ select(total_number_generations = total_number_generations,
      pause_length = pause_length)
 ```
 
-### GA::select() Parameters:
+## GA::select() Parameters
 
 The following section contains clarifications and an overview of common
 parameter changes when developing and testing genetic algorithms.
 
-<h4 align="center">
+<h3 align="center">
 <u> Custom user-genes & fitness functions </u>
-</h4>
+</h3>
 
-  User_genes allows the user specific genes to the initial generation
-provided that the matrix consist only of 1s and 0s has no all-zero rows,
-ncol = gene_length, and has nrow less than or equal the total population
-pop custom_function allows the user to specify a custom function instead
-of lm() or glm(). User-provided function must have its first two
-arguments be: (1) generation_matrix & (2) data.
+-   User_genes allows the user specific genes to the initial generation
+    provided that the matrix consist only of 1s and 0s has no all-zero
+    rows, ncol = gene_length, and has nrow less than or equal the total
+    population pop custom_function allows the user to specify a custom
+    function instead of lm() or glm(). User-provided function must have
+    its first two arguments be: (1) generation_matrix & (2) data.
 
-Function needs to take a single row of a generation_matrix and return a
-single numeric without NAs or infinities.Otherwise, user should specify
-a metric from R2, AIC, BIC, or AICC. The underlying fitness function for
-R2 is lm() and the underlying fitness function for AIC, BIC, and AICc is
-glm(). AIC, BIC, and AICC has the option to specify a specific family of
-functions however, the data needs to be defined across the support for
-the given family for instance exponential must be greater than 0.
+-   Function needs to take a single row of a generation_matrix and
+    return a single numeric without NAs or infinities.Otherwise, user
+    should specify a metric from R2, AIC, BIC, or AICC. The underlying
+    fitness function for R2 is lm() and the underlying fitness function
+    for AIC, BIC, and AICc is glm(). AIC, BIC, and AICC has the option
+    to specify a specific family of functions however, the data needs to
+    be defined across the support for the given family for instance
+    exponential must be greater than 0.
 
-Finally, one can also change the **estimator** parameter; can be
-nominated from the summary() function aka Min., 1st Qu., Median, Mean,
-3rd Qu., or Max. so for instance estimator = Max. metric = ‘AIC’ and
-score_threshold = 500 would terminate when the Max. AIC falls below 500.
-diversity is defined as sum(unique(genes))/total genes.
+-   Finally, one can also change the **estimator** parameter; can be
+    nominated from the summary() function aka Min., 1st Qu., Median,
+    Mean, 3rd Qu., or Max. so for instance estimator = Max. metric =
+    ‘AIC’ and score_threshold = 500 would terminate when the Max. AIC
+    falls below 500. diversity is defined as sum(unique(genes))/total
+    genes.
 
-<h4 align="center">
+<h3 align="center">
 <u> Parent selection method </u>
-</h4>
+</h3>
 
-  Roulette Method selects parents randomly with a probability
-proportional to their fitness
+-   Roulette Method selects parents randomly with a probability
+    proportional to their fitness
 
-Rank Method selects parents randomly with a probability proportional to
-the rank of their fitness
+-   Rank Method selects parents randomly with a probability proportional
+    to the rank of their fitness
 
-Tournament uses tourn_size to randomly group that many creatures
-together. The most fit in that group becomes a parent.
+-   Tournament uses tourn_size to randomly group that many creatures
+    together. The most fit in that group becomes a parent.
 
-Stochastic Universal Sampling works like roulette but also selects a
-number (susN) more candidates at a fixed width from the first draw to
-increase diversity
+-   Stochastic Universal Sampling (susN) works like roulette but also
+    selects a number (susN) more candidates at a fixed width from the
+    first draw to increase diversity
 
-<h4 align="center">
+<h3 align="center">
 <u> Available Crossover Methods </u>
-</h4>
+</h3>
 
-  Uniform - each gene is randomly selected from 2 or more parents from a
-PMF proportional to the number of parents.
+-   Uniform - each gene is randomly selected from 2 or more parents from
+    a PMF proportional to the number of parents.
 
-Fitness - each gene is randomly selected from 2 or more parents from a
-PMF proportional to the parent’s fitness.
+-   Fitness - each gene is randomly selected from 2 or more parents from
+    a PMF proportional to the parent’s fitness.
 
-K-Point - parents genes are broken into k+1 segments, then the offspring
-inherits portions randomly from the parents. Takes the parameter
-number_of_crossovers which must be less than 1/2 gene_length.For all
-methods candidate offspring are accepted / rejected so that they don’t
-have completely 0-vector genes.
+-   K-Point - parents genes are broken into k+1 segments, then the
+    offspring inherits portions randomly from the parents. Takes the
+    parameter number_of_crossovers which must be less than 1/2
+    gene_length.For all methods candidate offspring are accepted /
+    rejected so that they don’t have completely 0-vector genes.
 
-<h4 align="center">
+<h3 align="center">
 <u> Mutation parameters </u>
-</h4>
+</h3>
 
-  Fixed - Each offspring has a mutation_rate chance of being selected
-for mutation. Once selected one gene is switched form one to zero or
-zero to one.
+-   Fixed - Each offspring has a mutation_rate chance of being selected
+    for mutation. Once selected one gene is switched form one to zero or
+    zero to one.
 
-Adaptive - the overall population is measured for diversity. As
-diversity becomes lower, the mutation rate increases. Once selected for
-mutation a single gene is switched from one to zero or zero to one. The
-adaptive function is controlled by a simple logistic function with
-parameters ad_min and ad_max describing the minimum and maximum mutation
-rates. ad_inflection controls where the logistics point pivots, and
-ad_curve controls how rapidly the logistics curve increase.
+-   Adaptive - the overall population is measured for diversity. As
+    diversity becomes lower, the mutation rate increases. Once selected
+    for mutation a single gene is switched from one to zero or zero to
+    one. The adaptive function is controlled by a simple logistic
+    function with parameters ad_min and ad_max describing the minimum
+    and maximum mutation rates. ad_inflection controls where the
+    logistics point pivots, and ad_curve controls how rapidly the
+    logistics curve increase.
 
 For all mutation methods, candidate offspring are accepted/rejected so
 that they don’t have completely 0-vector genes.
 
-<h4 align="center">
+<h3 align="center">
 <u> ‘Inbreeding’ & Elitism </u>
-</h4>
+</h3>
 
-  This option reduces (though does not remove) the chance of similar
-creatures creating offspring together. Each parent is assigned new
-partner(s) randomly from a PMF proportional to how different their genes
-are. Parents are drawn without replacement so that if they were selected
-to become parents, they will still remain parents.
+-   The ‘Inbreeding’ parameter attempts to reduce the chance of similar
+    creatures creating offspring together. Each parent is assigned new
+    partner(s) randomly from a PMF proportional to how different their
+    genes are. Parents are drawn without replacement so that if they
+    were selected to become parents, they will still remain parents.
 
-Elitism preserves the most-fit creatures from each generation. by
-selecting a number of most fit creatures equal to the ceiling(pop \*
-elite_prop) and guarantees that they make it to the next generation.
-Additionally, this features makes a copy of each most-fit creature and
-conducts one gene mutation randomly on each creature.
+-   Elitism preserves the most-fit creatures from each generation. by
+    selecting a number of most fit creatures equal to the ceiling(pop \*
+    elite_prop) and guarantees that they make it to the next generation.
+    Additionally, this features makes a copy of each most-fit creature
+    and conducts one gene mutation randomly on each creature. If the
+    copy is more fit than the original, it is returned instead of the
+    original so that the final returned matrix of elite creatures are at
+    least as fit as the incoming elite creatures.
 
-If the copy is more fit than the original, it is returned instead of the
-original so that the final returned matrix of elite creatures are at
-least as fit as the incoming elite creatures.
-
-<h4 align="center">
+<h3 align="center">
 <u> Early Termination Conditions </u>
-</h4>
+</h3>
 
-  User can define early termination criteria to include a
-percentage_convergence such that when diversity falls below a specific
-threshold the program terminates. User can identify a estimate (from the
-standard summary() function that if the estimate reaches a specific
-threshold the program terminates or if the estimate pauses for a certain
-number of iterations terminates.
+-   Users can define early termination criteria to include a
+    percentage_convergence such that when diversity falls below a
+    specific threshold the program terminates. User can identify a
+    estimate (from the standard summary() function that if the estimate
+    reaches a specific threshold the program terminates or if the
+    estimate pauses for a certain number of iterations terminates.
 
-### Getting Help
+## Getting Help
 
 You can read more in our functions’ documentation using ?function (such
 as ?select). If you encounter a clear bug, please file an issue with a
