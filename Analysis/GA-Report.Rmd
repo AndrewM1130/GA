@@ -88,7 +88,7 @@ One area associated with mutation worth investigating would be the **minimizatio
 __Testing & Examples__
 
 \raggedright
-This section contains multiple examples of applications with our package. The first two are from select()'s help function (`?select`). In the third example we use a much large data sample from generate_data() and implement the adaptive mutation and minimize inbreeding. Immediately below is an example of the code being ran. For conciseness, we load the functions using `source('reportDemo.R')` and the code can be reviewed in our [Github](https://github.com/AndrewM1130/GA/blob/main/Analysis/reportDemo.R).
+This section contains multiple examples of applications with our package. The first two are examples pulled from select()'s help function (`?select`). The third example involves a large dataset from generate_data() and the deployment of adaptive mutation in combination with inbreeding-minimization techniques. For conciseness, we load the functions using `source('reportDemo.R')` and the code can be reviewed in our [Github](https://github.com/AndrewM1130/GA/blob/main/Analysis/reportDemo.R).
 
 ``` {r eval=FALSE, include = FALSE}
 out3 <- select(
@@ -119,21 +119,21 @@ out3 <- select(
 plot(out3[[3]],xlab="generation",ylab="AIC, Most Fit Creature")
 ```
 
-We did a lot of initial research into different methods for genetic algorithms. At an cursory level, any genetic algorithm design has to balance speed of convergence and computational complexity. The code for this final example is available in 'Final_Demo.R' but since it is time consuming and lengthy in code length we chose not to knit. In this last example we compare three methods:
+We did a lot of initial research into different methods for genetic algorithm; at a cursory level, any genetic algorithm design has to balance speed of convergence and computational complexity. The code for this final example can be found in 'Final_Demo.R', so we simply state the results without proof below:
 
- - Method 1: Fast - two parents, 1-point crossover, high elitism, high mutation
- - Method 2: Multi-Parent - four parents, lower elitism, lower mutation, uniform crossover
- - Method 3: Adaptive - two parents lower elitism, adaptive mutation, minimize inbreeding.
+ - **Method 1: Fast-Convergence** - two parents, 1-point crossover, high elitism, high mutation
+ - **Method 2: Multi-Parent** - four parents, lower elitism, lower mutation, uniform crossover
+ - **Method 3: Adaptive** - two parents lower elitism, adaptive mutation, minimize inbreeding.
  
 ![Comparison of Methods](img/Comparison.png)
 
-For this experiment, we use the data from generate_data() which is designed in such a way that the coefficients from features decrease from 1 to 50. See ?generate_data. We run each method five times taking the average system.time and also scoring the SSE using the formula below:
+For this experiment, note that our sample dataset is designed such that regression coefficients are sure to be in decreasing order and between the values of [1,50]. See ?generate_data(). We run each method five times taking the average system.time() and also scoring the SSE using the formula below:
 
 $SSE = \sum_{i = 1}^{n}(y_i - \hat{y_i})^2$
 
 ![SSE and Time](img/SSE_Time.png)
 
- We see that maintaining diversity had better results (minimizing SSE). However we also see that elitism appears to be computationally wasteful. If we went back and added additional features we could make the mutation in elitism optional which should speed up the processes.
+From the results, it is clear that maintaining diversity had better results (minimizing SSE). However we also see that elitism appears to be computationally wasteful and increases computational time while not providing significant decreases in model metrics or SSE.Finally, let's explore the differing rates of convergence with respect to parent selection methods:
 
 ``` {r SSE scoring, eval=FALSE, include = FALSE}
 test_out_results<- function(list_o) {
@@ -154,13 +154,11 @@ test_out_results<- function(list_o) {
   }
 ```
 
-Finally, let's explore the rate of convergence alongside the effect of parent selection methods on convergence rate:
-
 ![Example of Convergence to true solution with population size of 50 & ‘Rank’ method](img/rank-convergence) 
 
 ![Behavior of genetic algorithm under differing parent selection functions](img/4-methods) \
 
-From these results, we are confident that our genetic algorithm arrives at an optimal solution for feature selection problems with a linear decreasing rate. It seems that SUS converges to an optimal solution the fastest through large increases in the fitness levels. On the other hand, rank is a sure and steady method which follows rate. We also see that issues of premature convergence have been avoided with the use of crossover and forced variance(diversity) within members of each generation. 
+From the results of our experiments, we are confident that our genetic algorithm converges to an optimal solution for feature selection problems with at least a linear rate. It seems that SUS converges to an optimal solution the fastest through large increases in the fitness levels - this is similar to the conclusions drawn from stochastic gradient descent, where large jumps in the direction of greatest descent results in decreased convergence times. On the other hand, rank is a sure and steady method which seems to also converge at a linear rate. Note that of premature convergence have been avoided with the use of crossover and forced variance(diversity) within members of each generation - this greatly assist our algorithm in escaping traps of local minima! 
 
 \centering
 __Challenges & Future Possibilities__ 
