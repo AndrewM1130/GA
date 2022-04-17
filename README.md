@@ -4,11 +4,9 @@
 # GA <a href='https://github.com/AndrewM1130/GA'><img src='Analysis/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
-
+[![CRAN status](https://www.r-pkg.org/badges/version/GA)](https://cran.r-project.org/package=GA)
 [![R build
 status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
-[![Codecov test
-coverage](https://codecov.io/gh/tidyverse/dplyr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidyverse/dplyr?branch=main)
 [![Coverage Status](https://coveralls.io/repos/github/AndrewM1130/GA/badge.svg)](https://coveralls.io/github/AndrewM1130/GA)
 <!-- badges: end -->
 
