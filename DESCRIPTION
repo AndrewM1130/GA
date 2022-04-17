@@ -1,19 +1,11 @@
 Package: GA
 Type: Package
 Title: On Multivariate Feature Selection with Genetic Algorithms
-Version: 0.1.1
+Version: 0.1.2
 Author: Andrew Ma, James Hall, and Sky Qui 
 Maintainer: Andrew Ma <andrew_c_ma@berkeley.edu>
-Description: This package provides a genetic algorithm to identify optimal features 
-    for linear regression under R's LM and
-    GLM models. Users are able to set 
-    multiple parameters for the genetic 
-    algorithm and request optimization via 
-    R2, AIC, BIC, AICc or a user defined
-    function. The algorithm can process 
-    these score functions in parallel
-    on a single machine with the 
-    parallel = TRUE argument. 
+Description: A genetic algorithm to identify optimal features for generalized linear models. Users are able to set 
+  multiple parameters and request optimization via standard or custom metrics.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
