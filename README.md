@@ -6,7 +6,7 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/GA)](https://cran.r-project.org/package=GA)
 [![R build
-status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
+status](https://github.com/AndrewM1130/GA/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
 [![Coverage Status](https://coveralls.io/repos/github/AndrewM1130/GA/badge.svg)](https://coveralls.io/github/AndrewM1130/GA)
 <!-- badges: end -->
 
