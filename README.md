@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# GA <a href='https://github.com/AndrewM1130/GA'><img src='Analysis/figures/logo3.png' align="right" height="139" /></a>
+# GA <a href='https://github.com/AndrewM1130/GA'><img src='Analysis/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
