@@ -1,3 +1,4 @@
+
 test_that("breed_next_generation",{
   gene <- rbind(c(1,1,1,0,0,0),c(1,1,1,0,0,0),c(0,0,0,1,1,1),c(0,0,0,1,1,1))
   #score vec

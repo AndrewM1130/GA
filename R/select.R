@@ -166,6 +166,10 @@
 #'
 ### ----- function ----- ###
 
+#' @import testthat
+#' @import assertthat
+#' @import stats
+
 select <- function (total_number_generations,
                                number_of_parents = 2,
                                pop,

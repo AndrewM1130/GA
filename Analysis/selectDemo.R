@@ -12,7 +12,7 @@ out1<- select(pop = pop,gene_length = gene_length,
        response_vec = response_vec,independent_vars = independent_vars,
        total_number_generations = total_number_generations)
 
-plot(out1[[3]],xlab="generation",ylab="AIC, Most Fit Creature")
+plot(out1[[3]],xlab="generation",ylab="AIC, Most Fit Creature", type = 'l')
 
 ### ----- Help Example 2 ----- ###
 response_vec <-rnorm(100)
@@ -30,7 +30,7 @@ out2<- select(pop = pop,gene_length = gene_length,
        total_number_generations = total_number_generations,
        elitism = elitism,mutation_rate = mutation_rate,crossover = crossover,
        method = method)
-plot(out2[[3]],xlab="generation",ylab="AIC, Most Fit Creature")
+plot(out2[[3]],xlab="generation",ylab="AIC, Most Fit Creature", type = 'l')
 
 ### ----- Bigger Example -----###
 
@@ -89,4 +89,4 @@ out3 <- select(
   pause_length = pause_length,
   percent_converge = percent_converge)
 
-plot(out3[[3]],xlab="generation",ylab="AIC, Most Fit Creature")
+plot(out3[[3]],xlab="generation",ylab="AIC, Most Fit Creature", type = l, color = 'red')

@@ -1,3 +1,4 @@
+library(assertthat)
 library(testthat)
 library(GA)
 

@@ -60,15 +60,7 @@ test_user_function <- function(func,generation_matrix,data) {
 
   for (i in 1:nrow(generation_matrix)) {
     temp <- try(func(generation_matrix,data))
-
-    if (class(temp)=="try-error") {
-      error_note <- temp
-      message <-"User-Provided Function did not run as exected. Please review package help instructions"
-      break()
-    }
     out[i]<-temp
-
-
   }
 
 

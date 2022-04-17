@@ -3,7 +3,7 @@ Type: Package
 Title: On Multivariate Feature Selection with Genetic Algorithms
 Version: 0.1.1
 Author: Andrew Ma, James Hall, and Sky Qui 
-Maintainer: <andrew.c.ma@berkeley.edu>
+Maintainer: Andrew Ma <andrew_c_ma@berkeley.edu>
 Description: This package provides a genetic algorithm to identify optimal features 
     for linear regression under R's LM and
     GLM models. Users are able to set 
@@ -22,4 +22,3 @@ Imports:
     stats,
     testthat
 RoxygenNote: 7.1.2
-Config/testthat/edition: 3
