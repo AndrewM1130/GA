@@ -12,7 +12,7 @@ status](https://github.com/AndrewM1130/GA/workflows/R-CMD-check/badge.svg)](http
 
 ## Overview
 
-  GA is an exploration into the development of a customizable package
+GA is an exploration into the development of a customizable package
 for genetic algorithm with the goal of solving multivariate linear
 regression at speeds faster than step-wise methods. The main function
 and supporting functions are:
@@ -44,10 +44,10 @@ and supporting functions are:
 -   `generate_data()` generates normal data with 50 Covariates -
     utilized for demo/setup & benchmarking purposes
 
-  **GA requires the stats, tesstthat, and assertthat packages**; these
+GA requires the stats, tesstthat, and assertthat packages**; these
 should automatically be installed and loaded when installing the ‘GA’
 pacakge. A in-depth paper on the development process can be found
-[here](https://github.com/AndrewM1130/GA/blob/main/Analysis/Project_Report_Hall_Ma_Qian.pdf).
+[here](https://github.com/AndrewM1130/GA/blob/main/release_process/GAReport.pdf).
 
 Users can enter a custom function or select a metric from (AIC, BIC,
 AICC, R2) to optimize features to include in the linear regression. This
@@ -163,7 +163,7 @@ integer values
 </tbody>
 </table>
 
-  A comprehensive list of available options for each parameter and their
+A comprehensive list of available options for each parameter and their
 default values within the select() function can be found within the
 [documentation
 manual](https://github.com/AndrewM1130/GA/blob/main/Analysis/GADocumentation.pdf).
